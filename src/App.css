@@ -31,3 +31,15 @@
     transform: rotate(360deg);
   }
 }
+
+body{
+  background-color: #8A2BE2 !important;
+}
+.navbar-white{
+  color:white !important;
+}
+
+.post-padding {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}

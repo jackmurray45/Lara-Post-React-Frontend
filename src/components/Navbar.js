@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const loginSignUpSplit = {
     marginTop: '8px'
@@ -22,7 +23,9 @@ function Navbar() {
                         Profiles <span className="caret"></span>
                     </a>
                     <div className="dropdown-menu">
-                        <a href="/profiles"  className = 'dropdown-item navbar-white'>View Profiles</a>
+                        <Link to = "/profiles"  className = 'dropdown-item'>
+                            View Profiles
+                        </Link>
                         {/* <a href="/profiles/following"  className = 'dropdown-item'>Profiles Following</a>
                         <div className="dropdown-divider"></div>
                         <a href="/profiles/me"  className = 'dropdown-item'>My Profile</a> */}
@@ -34,10 +37,10 @@ function Navbar() {
                         Posts <span className="caret"></span>
                     </a>
                     <div className="dropdown-menu">
-                        <a href="/posts/following"  className = 'dropdown-item'>Following Posts</a>
-                        <a href="/posts"  className = 'dropdown-item'>All Posts</a>
+                        <Link to = "/posts"  className = 'dropdown-item'>
+                            All Posts
+                        </Link>
                     </div>
-                    
                 </li>
             </ul>
             <ul className="nav navbar-nav ml-auto">
@@ -58,16 +61,12 @@ function Navbar() {
                             <a className="btn btn-link nav-link navbar-white center" href="/register">Sign Up</a>
                         </div>
                     </li>
-                   
                      <li className="nav-item dropdown" style = 'margin-right:50px'>
                         <a href="#" className="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span className="caret"></span>
+                            Users Name
                         </a>
                         <div className="dropdown-menu">
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
-                            <a href="#" onclick = "$('#logout-form').submit()" className = 'dropdown-item'><i className="fa fa-btn fa-sign-out "></i>Logout</a>
+                            <a href="#" className = 'dropdown-item'><i className="fa fa-btn fa-sign-out "></i>Logout</a>
                         </div>         
                     </li> 
                 </ul>

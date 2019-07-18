@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import API from '../API.js';
 
 function Posts() {
 
@@ -9,15 +10,9 @@ function Posts() {
   const [posts, setPosts] = useState([]);
 
   const fetchPosts = async () => {
-
-
-
-
-    const data = await fetch(
-      "http://lara-post.test/api/posts"
-    );
-
-    const posts = await data.json();
+    const api = new API();
+    api.createEntity({name: 'posts'});
+    const posts = await api.endpoints.posts.getAll();
     setPosts(posts.data);
   };
 

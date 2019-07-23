@@ -50,3 +50,38 @@ body{
   margin-bottom: 50px;
   border-radius:5px !important;
 }
+
+.card-columns{
+  width: 75% !important;
+  margin: 0 auto !important;
+}
+
+.avatar-circle {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  background-color: #D3D3D3;
+  margin: 0 auto; 
+  margin-top: 5px;
+}
+
+.initials {
+  position: relative;
+  top: 25px; /* 25% of parent */
+  font-size: 50px; /* 50% of parent */
+  line-height: 50px; /* 50% of parent */
+  font-weight: bold;
+  color: #8A2BE2;
+}
+
+.btn-purple{
+  color: #8A2BE2 !important;
+  border-color: #8A2BE2 !important;
+}
+
+.btn-purple:hover{
+  background-color:rgb(138,43,226, 0.5) !important;
+}

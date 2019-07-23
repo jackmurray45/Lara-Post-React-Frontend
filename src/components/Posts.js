@@ -3,17 +3,29 @@ import API from '../API.js';
 
 function Posts() {
 
-  useEffect(() => {
-    fetchPosts();
-  }, []);
 
   const [posts, setPosts] = useState([]);
+  const [isFetching, setIsFetching] = useState(false);
+  const [pageNum, setPageNum] = useState(1);
 
-  const fetchPosts = async () => {
+  useEffect(() => {
+    fetchPosts(pageNum);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isFetching]);
+
+  function handleScroll() {
+    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
+    setPageNum(pageNum + 1);
+    setIsFetching(true);
+  }
+
+  const fetchPosts = async (pageNum) => {
     const api = new API();
     api.createEntity({name: 'posts'});
-    const posts = await api.endpoints.posts.getAll();
-    setPosts(posts.data);
+    const newPosts = await api.endpoints.posts.getAll(pageNum);
+    setIsFetching(false);
+    setPosts([...posts, ...newPosts.data]);
   };
 
 
